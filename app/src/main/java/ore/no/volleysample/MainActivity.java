@@ -9,10 +9,9 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import ore.no.volleysample.model.Weather;
-import ore.no.volleysample.model.api.WeatherRequest;
+import ore.no.volleysample.weather.Weather;
+import ore.no.volleysample.weather.WeatherRequest;
 import ore.no.volleysample.util.TsVolleyManager;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -21,19 +20,30 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        WeatherRequest sr = new WeatherRequest(new Response.Listener<Weather>() {
-            @Override
-            public void onResponse(Weather weather) {
-                Toast.makeText(getApplicationContext(), weather.name + ":" + weather.description, Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        WeatherRequest wr = new WeatherRequest(
+                new Response.Listener<Weather>() {
+                    @Override
+                    public void onResponse(Weather weather) {
+                        Toast.makeText(
+                                getApplicationContext(),
+                                weather.name + ":" + weather.description,
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(
+                                getApplicationContext(),
+                                error.toString(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+        );
 
-        TsVolleyManager.getInstance(this).addToRequestQueue(sr);
+        TsVolleyManager.getInstance(this).addToRequestQueue(wr);
     }
 
     @Override

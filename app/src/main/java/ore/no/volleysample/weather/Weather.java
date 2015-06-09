@@ -1,4 +1,4 @@
-package ore.no.volleysample.model;
+package ore.no.volleysample.weather;
 
 public class Weather {
     public String name;

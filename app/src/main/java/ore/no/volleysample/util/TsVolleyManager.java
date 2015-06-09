@@ -12,11 +12,11 @@ import com.android.volley.toolbox.Volley;
 public class TsVolleyManager {
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
-    private static Context mAppContext;
-    private static TsVolleyManager mInstance;
+    private static Context sAppContext;
+    private static TsVolleyManager sInstance;
 
     private TsVolleyManager(Context context) {
-        mAppContext = context.getApplicationContext();
+        sAppContext = context.getApplicationContext();
         mRequestQueue = getRequestQueue();
         mImageLoader = new ImageLoader(
                 mRequestQueue,
@@ -38,15 +38,15 @@ public class TsVolleyManager {
     }
 
     public static synchronized TsVolleyManager getInstance(Context context) {
-        if (mInstance == null) {
-            mInstance = new TsVolleyManager(context);
+        if (sInstance == null) {
+            sInstance = new TsVolleyManager(context);
         }
-        return mInstance;
+        return sInstance;
     }
 
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(mAppContext);
+            mRequestQueue = Volley.newRequestQueue(sAppContext);
         }
         return mRequestQueue;
     }

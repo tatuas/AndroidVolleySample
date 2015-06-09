@@ -1,4 +1,4 @@
-package ore.no.volleysample.model.api;
+package ore.no.volleysample.weather;
 
 import com.android.volley.Response;
 
@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ore.no.volleysample.model.Weather;
 import ore.no.volleysample.util.TsVolleyRequest;
 
 public class WeatherRequest extends TsVolleyRequest<Weather> {

@@ -1,4 +1,4 @@
-# AndroidVolleySample
+# [Deprecated] AndroidVolleySample
 Android Studio × Volley
 
 # Volleyインストール

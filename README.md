@@ -5,6 +5,7 @@ Android Studio × Volley
 
 現在はGradleで提供されるようになったので、このプロセス及びサンプルは必要なくなった…
 https://developer.android.com/training/volley/index.html
+レガシーな記録として残しておく。
 
 ## Android Studioでプロジェクト作成
 なんでも良い。
